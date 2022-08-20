@@ -1,8 +1,56 @@
 {
     "openapi": "3.0.2",
     "info": {
-        "title": "Library REST API",
-        "version": "0.0.0"
+        "title": "Library API",
+        "version": "0.0.1"
     },
-    "paths": {}
+    "paths": {
+        "/movies/{id}": {
+            "get": {
+                "summary": "Get a single movie",
+                "description": "Retrieves the movies in the library with the given ID.",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "title": {
+                                            "type": "string"
+                                        },
+                                        "year": {
+                                            "type": "integer",
+                                            "format": "int32",
+                                            "description": "Release Year"
+                                        },
+                                        "director": {
+                                            "type": "string"
+                                        },
+                                        "review": {
+                                            "type": "string"
+                                        },
+                                        "valoration": {
+                                            "type": "string",
+                                            "enum": [
+                                                "liked",
+                                                "disliked",
+                                                "none"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
