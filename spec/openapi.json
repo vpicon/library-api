@@ -20,31 +20,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "title": {
-                      "type": "string"
-                    },
-                    "year": {
-                      "type": "integer",
-                      "format": "int32",
-                      "description": "Release Year"
-                    },
-                    "director": {
-                      "type": "string"
-                    },
-                    "review": {
-                      "type": "string"
-                    },
-                    "valoration": {
-                      "type": "string",
-                      "enum": [
-                        "liked",
-                        "disliked",
-                        "none"
-                      ]
-                    }
-                  }
+                  "$ref": "#/components/schemas/movie"
                 }
               }
             }
@@ -66,6 +42,37 @@
                 }
               }
             }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "movie": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Release Year"
+          },
+          "director": {
+            "type": "string"
+          },
+          "review": {
+            "type": "string"
+          },
+          "valoration": {
+            "type": "string",
+            "enum": [
+              "liked",
+              "disliked",
+              "none"
+            ]
           }
         }
       }
