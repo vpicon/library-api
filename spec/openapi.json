@@ -10,13 +10,9 @@
         "summary": "Get a single movie",
         "description": "Retrieves the movies in the library with the given ID.",
         "parameters": [
-          {
-            "name": "movieId",
-            "in": "path",
-            "description": "Movie Id number previously given by the application",
-            "type": "integer",
-            "required": true
-          }
+            {
+              "$ref": "#/components/parameters/movieId"
+            }
         ],
         "responses": {
           "200": {
@@ -34,15 +30,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "string"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/error"
                 }
               }
             }
@@ -79,7 +67,27 @@
             ]
           }
         }
+      },
+      "error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
       }
+    },
+    "parameters": {
+       "movieId": {
+         "name": "movieId",
+         "in": "path",
+         "description": "Movie Id number previously given by the application",
+         "type": "integer",
+         "required": true
+       }
     }
   }
 }
