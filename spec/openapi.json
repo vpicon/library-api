@@ -5,15 +5,19 @@
     "version": "0.0.1"
   },
   "paths": {
-    "/movies/{id}": {
+    "/movies/{movieId}": {
       "get": {
         "summary": "Get a single movie",
         "description": "Retrieves the movies in the library with the given ID.",
-        "parameters": {
-          "name": "id",
-          "in": "path",
-          "required": true
-        },
+        "parameters": [
+          {
+            "name": "movieId",
+            "in": "path",
+            "description": "Movie Id number previously given by the application",
+            "type": "integer",
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
