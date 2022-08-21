@@ -19,6 +19,83 @@
     }
   ],
   "paths": {
+    "/movies": {
+      "post": {
+        "summary": "Add a new movie",
+        "description": "Adds a new movie to the library and returns the inserted movie with its new ID.",
+        "tags": [
+          "Movies"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "year": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Release Year"
+                  },
+                  "director": {
+                    "type": "string"
+                  },
+                  "review": {
+                    "type": "string"
+                  },
+                  "valoration": {
+                    "type": "string",
+                    "enum": [
+                      "liked",
+                      "disliked",
+                      "none"
+                    ]
+                  }
+                },
+                "required": [
+                  "title",
+                  "year",
+                  "director"
+                ],
+                "example": {
+                  "title": "Blade Runner",
+                  "year": 1982,
+                  "director": "Ridley Scott",
+                  "review": "Memorable movie.",
+                  "valoration": "liked"
+                }
+              }
+            }
+          },
+          "description": "Fields of the new movie to be added."
+        },
+        "responses": {
+          "200": {
+            "description": "OK. Returns new movie added.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/movie"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Movie could not be added.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/movies/{movieId}": {
       "get": {
         "summary": "Get a single movie",
