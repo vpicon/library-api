@@ -13,10 +13,11 @@ tags:
 paths:
   /movies:
     get:
-      summary: Get all movies
-      description: Retrieves all movies from the library.
       tags:
         - Movies
+      operationId: getMovies
+      summary: Get all movies
+      description: Retrieves all movies from the library.
       responses:
         '200':
           description: OK
@@ -31,12 +32,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
     post:
+      tags:
+        - Movies
+      operationId: addMovie
       summary: Add a new movie
       description: >-
         Adds a new movie to the library and returns the inserted movie with its
         new ID.
-      tags:
-        - Movies
       requestBody:
         content:
           application/json:
@@ -85,10 +87,11 @@ paths:
                 $ref: '#/components/schemas/error'
   /movies/{movieId}:
     get:
-      summary: Get a single movie
-      description: Retrieves the movie in the library with the given ID.
       tags:
         - Movies
+      operationId: getMovieById
+      summary: Get a single movie
+      description: Retrieves the movie in the library with the given ID.
       parameters:
         - $ref: '#/components/parameters/movieId'
       responses:
@@ -105,12 +108,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
     put:
+      tags:
+        - Movies
+      operationId: updateMovieById
       summary: Update a single movie editables
       description: >-
         Updates the movie's editables (review and/or valoration) in the library
         with the given ID.
-      tags:
-        - Movies
       parameters:
         - $ref: '#/components/parameters/movieId'
       requestBody:
@@ -138,10 +142,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
     delete:
-      summary: Delete a single movie
-      description: Remove the movie in the library with the given ID.
       tags:
         - Movies
+      operationId: deleteMovieById
+      summary: Delete a single movie
+      description: Remove the movie in the library with the given ID.
       parameters:
         - $ref: '#/components/parameters/movieId'
       responses:
@@ -156,10 +161,11 @@ paths:
                 $ref: '#/components/schemas/error'
   /movies/playlists:
     get:
-      summary: Get all movie playlists
-      description: Retrieves all movie playlists from the library.
       tags:
         - Movies
+      operationId: getMoviePlaylists
+      summary: Get all movie playlists
+      description: Retrieves all movie playlists from the library.
       responses:
         '200':
           description: OK
@@ -174,12 +180,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
     post:
+      tags:
+        - Movies
+      operationId: addMoviePlaylist
       summary: Add a new movie playlist
       description: >-
         Adds a new movie playlist to the library and returns the inserted
         playlist with its new ID.
-      tags:
-        - Movies
       requestBody:
         content:
           application/json:
@@ -208,10 +215,11 @@ paths:
                 $ref: '#/components/schemas/error'
   /movies/playlists/{playlistId}:
     put:
-      summary: Update a playlist info
-      description: Updates the playlist's data in the library with the given ID.
       tags:
         - Movies
+      operationId: updateMoviePlaylistById
+      summary: Update a playlist info
+      description: Updates the playlist's data in the library with the given ID.
       parameters:
         - $ref: '#/components/parameters/playlistId'
       requestBody:
@@ -233,10 +241,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
     delete:
-      summary: Delete a single playlist
-      description: Delete the playlist from the library with the given ID.
       tags:
         - Movies
+      operationId: deleteMoviePlaylistById
+      summary: Delete a single playlist
+      description: Delete the playlist from the library with the given ID.
       parameters:
         - $ref: '#/components/parameters/playlistId'
       responses:
@@ -251,10 +260,11 @@ paths:
                 $ref: '#/components/schemas/error'
   /movies/playlists/{playlistId}/entries:
     post:
-      summary: Add movie to a playlist
-      description: Add a new movie to the playlist in the library with the given ID.
       tags:
         - Movies
+      operationId: addMoviePlaylistEntry
+      summary: Add movie to a playlist
+      description: Add a new movie to the playlist in the library with the given ID.
       parameters:
         - $ref: '#/components/parameters/playlistId'
       requestBody:
@@ -273,10 +283,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
     delete:
-      summary: Delete a movie to a playlist
-      description: Deletes a movie from the playlist in the library with the given ID.
       tags:
         - Movies
+      operationId: deleteMoviePlaylistEntry
+      summary: Delete a movie to a playlist
+      description: Deletes a movie from the playlist in the library with the given ID.
       parameters:
         - $ref: '#/components/parameters/playlistId'
       requestBody:
