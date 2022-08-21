@@ -22,13 +22,13 @@
     "/movies": {
       "get": {
         "summary": "Get all movies",
-        "description": "Retrieves all movies from the librar.",
+        "description": "Retrieves all movies from the library.",
         "tags": [
           "Movies"
         ],
         "responses": {
           "200": {
-            "description": "OK. Returns new movie added.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -225,6 +225,39 @@
           }
         }
       }
+    },
+    "/movies/playlists": {
+      "get": {
+        "summary": "Get all movie playlists",
+        "description": "Retrieves all movie playlists from the library.",
+        "tags": [
+          "Movies"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/playlistList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Generic Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+      }
     }
   },
   "components": {
@@ -294,6 +327,32 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/movie"
+        }
+      },
+      "playlist": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title"
+        ],
+        "example": {
+          "id": 152,
+          "title": "War"
+        }
+      },
+      "playlistList": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/playlist"
         }
       },
       "error": {
