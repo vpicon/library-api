@@ -319,6 +319,50 @@
           }
         }
       }
+    },
+    "/movies/playlists/{playlistId}": {
+      "put": {
+        "summary": "Update a playlist info",
+        "description": "Updates the playlist's data in the library with the given ID.",
+        "tags": [
+          "Movies"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/playlistId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "Playlist not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -418,7 +462,16 @@
          "in": "path",
          "description": "Movie Id number previously given by the application",
          "type": "integer",
-         "required": true
+         "required": true,
+         "example": 968523
+       },
+       "playlistId": {
+         "name": "playlistId",
+         "in": "path",
+         "description": "Playlist Id number previously given by the application",
+         "type": "integer",
+         "required": true,
+         "example": 123
        }
     }
   }
