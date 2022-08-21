@@ -362,6 +362,110 @@
             }
           }
         }
+      },
+      "delete": {
+        "summary": "Delete a single playlist",
+        "description": "Delete the playlist from the library with the given ID.",
+        "tags": [
+          "Movies"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/playlistId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "Playlist not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/movies/playlists/{playlistId}/entries": {
+      "post": {
+        "summary": "Add movie to a playlist",
+        "description": "Add a new movie to the playlist in the library with the given ID.",
+        "tags": [
+          "Movies"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/playlistId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/movie"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "Playlist not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a movie to a playlist",
+        "description": "Deletes a movie from the playlist in the library with the given ID.",
+        "tags": [
+          "Movies"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/playlistId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/movie"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "Playlist not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
