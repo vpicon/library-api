@@ -366,6 +366,7 @@ components:
       description: Movie Id number previously given by the application
       schema:
         type: integer
+        format: int64
       required: true
       example: 968523
     playlistId:
@@ -374,5 +375,6 @@ components:
       description: Playlist Id number previously given by the application
       schema:
         type: integer
+        format: int64
       required: true
       example: 123
