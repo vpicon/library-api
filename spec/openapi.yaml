@@ -363,13 +363,15 @@ components:
       name: movieId
       in: path
       description: Movie Id number previously given by the application
-      type: integer
+      schema:
+        type: integer
       required: true
       example: 968523
     playlistId:
       name: playlistId
       in: path
       description: Playlist Id number previously given by the application
-      type: integer
+      schema:
+        type: integer
       required: true
       example: 123
