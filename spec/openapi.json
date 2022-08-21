@@ -24,12 +24,12 @@
         "summary": "Get a single movie",
         "description": "Retrieves the movie in the library with the given ID.",
         "tags": [
-            "Movies"
+          "Movies"
         ],
         "parameters": [
-            {
-              "$ref": "#/components/parameters/movieId"
-            }
+          {
+            "$ref": "#/components/parameters/movieId"
+          }
         ],
         "responses": {
           "200": {
@@ -54,16 +54,53 @@
           }
         }
       },
+      "put": {
+        "summary": "Update a single movie editables",
+        "description": "Updates the movie's editables (review and/or valoration) in the library with the given ID.",
+        "tags": [
+          "Movies"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/movieId"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/movieEditable"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "OK",
+            "content": {}
+          },
+          "404": {
+            "description": "Movie not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      },
       "delete": {
         "summary": "Delete a single movie",
         "description": "Remove the movie in the library with the given ID.",
         "tags": [
-            "Movies"
+          "Movies"
         ],
         "parameters": [
-            {
-              "$ref": "#/components/parameters/movieId"
-            }
+          {
+            "$ref": "#/components/parameters/movieId"
+          }
         ],
         "responses": {
           "204": {
@@ -100,6 +137,22 @@
           "director": {
             "type": "string"
           },
+          "review": {
+            "type": "string"
+          },
+          "valoration": {
+            "type": "string",
+            "enum": [
+              "liked",
+              "disliked",
+              "none"
+            ]
+          }
+        }
+      },
+      "movieEditable": {
+        "type": "object",
+        "properties": {
           "review": {
             "type": "string"
           },
