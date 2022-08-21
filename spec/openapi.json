@@ -102,7 +102,7 @@
           "description": "Fields of the new movie to be added."
         },
         "responses": {
-          "200": {
+          "201": {
             "description": "OK. Returns new movie added.",
             "content": {
               "application/json": {
@@ -257,6 +257,54 @@
         }
       },
       "post": {
+        "summary": "Add a new movie playlist",
+        "description": "Adds a new movie playlist to the library and returns the inserted playlist with its new ID.",
+        "tags": [
+          "Movies"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "title"
+                ],
+                "example": {
+                  "title": "War"
+                }
+              }
+            }
+          },
+          "description": "Fields of the new playlist to be added."
+        },
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/playlist"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Generic Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
