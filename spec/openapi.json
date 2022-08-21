@@ -175,7 +175,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/movieEditable"
+                "type": "object",
+                "properties": {
+                  "review": {
+                    "type": "string"
+                  },
+                  "valoration": {
+                    "type": "string",
+                    "enum": [
+                      "liked",
+                      "disliked",
+                      "none"
+                    ]
+                  }
+                }
               }
             }
           }
@@ -353,22 +366,6 @@
           "director": "Ridley Scott",
           "review": "Memorable movie.",
           "valoration": "liked"
-        }
-      },
-      "movieEditable": {
-        "type": "object",
-        "properties": {
-          "review": {
-            "type": "string"
-          },
-          "valoration": {
-            "type": "string",
-            "enum": [
-              "liked",
-              "disliked",
-              "none"
-            ]
-          }
         }
       },
       "movieList": {
