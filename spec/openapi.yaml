@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   title: Library API
   description: Library web API to access movies, books and music resouces. Based in [this repository](https://github.com/vpicon/library-api).
-  version: 0.1.1
+  version: 0.1.2
 tags:
   - name: Movies
     description: Operations about the Movies library.
