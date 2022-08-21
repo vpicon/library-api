@@ -4,11 +4,28 @@
     "title": "Library API",
     "version": "0.0.1"
   },
+  "tags": [
+    {
+      "name": "Movies",
+      "description": "Operations about the Movies library."
+    },
+    {
+      "name": "Books",
+      "description": "Operations about the Books library."
+    },
+    {
+      "name": "Music",
+      "description": "Operations about the Music library."
+    }
+  ],
   "paths": {
     "/movies/{movieId}": {
       "get": {
         "summary": "Get a single movie",
         "description": "Retrieves the movie in the library with the given ID.",
+        "tags": [
+            "Movies"
+        ],
         "parameters": [
             {
               "$ref": "#/components/parameters/movieId"
@@ -40,6 +57,9 @@
       "delete": {
         "summary": "Delete a single movie",
         "description": "Remove the movie in the library with the given ID.",
+        "tags": [
+            "Movies"
+        ],
         "parameters": [
             {
               "$ref": "#/components/parameters/movieId"
