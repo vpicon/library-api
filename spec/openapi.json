@@ -20,6 +20,35 @@
   ],
   "paths": {
     "/movies": {
+      "get": {
+        "summary": "Get all movies",
+        "description": "Retrieves all movies from the librar.",
+        "tags": [
+          "Movies"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. Returns new movie added.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/movieList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Generic Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "summary": "Add a new movie",
         "description": "Adds a new movie to the library and returns the inserted movie with its new ID.",
@@ -259,6 +288,12 @@
               "none"
             ]
           }
+        }
+      },
+      "movieList": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/movie"
         }
       },
       "error": {
