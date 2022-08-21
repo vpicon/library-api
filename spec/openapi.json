@@ -8,7 +8,7 @@
     "/movies/{movieId}": {
       "get": {
         "summary": "Get a single movie",
-        "description": "Retrieves the movies in the library with the given ID.",
+        "description": "Retrieves the movie in the library with the given ID.",
         "parameters": [
             {
               "$ref": "#/components/parameters/movieId"
@@ -24,6 +24,31 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Movie not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a single movie",
+        "description": "Remove the movie in the library with the given ID.",
+        "parameters": [
+            {
+              "$ref": "#/components/parameters/movieId"
+            }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK",
+            "content": {}
           },
           "404": {
             "description": "Movie not found.",
