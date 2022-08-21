@@ -203,6 +203,10 @@
       "movie": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
           "title": {
             "type": "string"
           },
@@ -225,6 +229,20 @@
               "none"
             ]
           }
+        },
+        "required": [
+          "id",
+          "title",
+          "year",
+          "director"
+        ],
+        "example": {
+          "id": 7128353,
+          "title": "Blade Runner",
+          "year": 1982,
+          "director": "Ridley Scott",
+          "review": "Memorable movie.",
+          "valoration": "liked"
         }
       },
       "movieEditable": {
