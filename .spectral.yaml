@@ -1,1 +1,11 @@
 extends: ["spectral:oas"]
+rules:
+  paths-name-style:   # Naming style for all paths and routes
+    description: Should paths be dash-case.
+    message: "{{property}} should be dash-case (lower-case and separated with hyphens)"
+    severity: error
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        match: "^(\/|[a-z0-9-.]+|{[a-zA-Z0-9_]+})+$"
