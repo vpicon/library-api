@@ -10,5 +10,5 @@ The checking is done by providing the `.spectral.yaml` file.
 For running the checks so, the Spectral command-line program must be 
 installed in the system. And is run with the following command.
 ```
-$ node @spotlight/spectral-cli lint --ruleset .spectral.yaml spec/openapi.yaml
+$ npx @stoplight/spectral-cli lint --ruleset .spectral.yaml spec/openapi.yaml
 ```
